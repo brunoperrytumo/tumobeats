@@ -1,6 +1,9 @@
 let audio;
 let analyser;
 
+let tumoLogo;
+let musicLabel;
+
 let rangeInput;
 let volumeInput;
 
@@ -68,6 +71,10 @@ window.onload = async () => {
   let request = await fetch("data.json");
   musicList = await request.json();
 
+  //music label and tumo logo
+  tumoLogo = document.querySelector("#tumo-logo");
+  musicLabel = document.querySelector("#visor h2");
+
   //Dropzone
   document.querySelector("#dropzone").ondrop = function (e) {
     e.preventDefault();
@@ -76,7 +83,6 @@ window.onload = async () => {
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-      console.log(file.type);
       if (file && file.type !== "audio/mpeg" && file.type !== "audio/flac") continue;
 
       musicList.push({
@@ -151,12 +157,14 @@ window.onload = async () => {
     }
     playIcon.style.display = "none";
     pauseIcon.style.display = "initial";
-    document.querySelector("#visor").querySelector("h2").innerText =
-      musicList[currentMusic].title;
+    musicLabel.innerText = musicList[currentMusic].title;
+    tumoLogo.style.display = "none";
   };
   audio.onpause = function () {
     playIcon.style.display = "initial";
     pauseIcon.style.display = "none";
+    musicLabel.innerText = "";
+    tumoLogo.style.display = "initial";
   };
   audio.ontimeupdate = function () {
     const currentTime = audio.currentTime;
@@ -179,6 +187,9 @@ window.onload = async () => {
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js");
   }
+
+  document.querySelector("#container").style.opacity = 1;
+  document.querySelector("#container").style.scale = 1;
 };
 window.ondrop = function (e) {
   e.preventDefault();
