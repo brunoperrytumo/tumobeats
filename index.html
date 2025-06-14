@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TumoBeats</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="images/app_logo.svg" />
+    <link rel="apple-touch-icon" href="images/app_logo.svg" />
     <link rel="stylesheet" href="styles.css">
     <script src="app.js"></script>
 </head>
@@ -12,46 +15,65 @@
 <body>
     <div id="container">
         <div id="visor">
-            <h2></h2>
-            <div id="dropzone"></div>
+            <h2>Tumo Beats</h2>
+            <canvas id="analyser-canvas"></canvas>
+            <div id="dropzone">
+
+            </div>
         </div>
         <div id="scrub">
             <div id="progress-bar" class="bar"></div>
             <input type="range" id="range-input">
+            <p>00:00</p>
         </div>
         <button id="previous-button">
-            <svg width="50%" height="50%" viewBox="0 0 9 12" fill="var(--color-button)">
+            <svg width="50%" height="40%" viewBox="0 0 9 12" fill="var(--color-b)">
                 <path d="M1.899,6.024l0,4.961l-1.899,-0l0,-10.985l1.899,0l0,4.996l7,-4.978l-0,10.984l-7,-4.978Z" />
             </svg>
         </button>
         <button id="play-pause-button">
-            <svg id="play-icon" width="100%" height="100%" viewBox="0 0 23 23" fill="var(--color-button)">
+            <svg id="play-icon" width="100%" height="80%" viewBox="0 0 23 23" fill="var(--color-b)">
                 <path d="M22.164,11.082l-22.164,11.082l0,-22.164l22.164,11.082Z" />
             </svg>
-            <svg id="pause-icon" width="100%" height="100%" viewBox="0 0 23 23" fill="var(--color-button)">
+            <svg id="pause-icon" width="100%" height="80%" viewBox="0 0 23 23" fill="var(--color-b)">
                 <rect x="-0" y="0" width="9.339" height="22.166" />
                 <rect x="12.825" y="0" width="9.339" height="22.166" />
             </svg>
         </button>
         <button id="next-button">
-            <svg width="50%" height="50%" viewBox="0 0 9 12" fill="var(--color-button)">
+            <svg width="50%" height="40%" viewBox="0 0 9 12" fill="var(--color-b)">
                 <path d="M7,4.978l-0,-4.96l1.899,-0l-0,10.984l-1.899,0l-0,-4.995l-7,4.978l-0,-10.985l7,4.978Z" />
             </svg>
         </button>
         <div id="volume">
-            <svg width="48" height="32" viewBox="0 0 32 26">
-                <path fill="var(--color-button)"
-                    d="M 0,18.645885 H 3.9281859 L 18.356589,25.968857 V -4.4045092e-7 L 3.9281859,7.3229713 H 0 Z" />
-                <g style="stroke-width:4;stroke:var(--color-button)">
-                    <path d="M 23.109891,12.984429 H 32" />
-                    <path d="m 20.403101,18.197253 7.699038,6.061451" />
-                    <path d="M 20.403101,7.7716036 28.102139,1.7101522" />
-                </g>
-            </svg>
+            <button id="mute-button">
+                <svg id="unmuted-icon" width="48" height="32" viewBox="0 0 32 26">
+                    <path fill="var(--color-b)"
+                        d="M 0,18.645885 H 3.9281859 L 18.356589,25.968857 V -4.4045092e-7 L 3.9281859,7.3229713 H 0 Z" />
+                    <g style="stroke-width:4;stroke:var(--color-b)">
+                        <path d="M 23.109891,12.984429 H 32" />
+                        <path d="m 20.403101,18.197253 7.699038,6.061451" />
+                        <path d="M 20.403101,7.7716036 28.102139,1.7101522" />
+                    </g>
+                </svg>
+                <svg id="muted-icon" width="48" height="32" viewBox="0 0 32 26">
+                    <path fill="var(--color-b)"
+                        d="M 0,18.645885 H 3.9281859 L 18.356589,25.968857 V -4.4045092e-7 L 3.9281859,7.3229713 H 0 Z" />
+                </svg>
+            </button>
             <div id="volume-container">
                 <div id="volume-bar" class="bar"></div>
                 <input type="range" id="volume-input">
             </div>
+            <svg width="20%" height="50%" viewBox="0 0 1020 322" fill="var(--color-c)">
+                <path d="M810,1.089l-180,-0l-0,60l60,-0l-0,260l60,-0l-0,-260l60,-0l-0,-60Z" />
+                <path
+                    d="M1020,321.089l-0,-190l-120,-0l-0,-71.089l120,-0l-0,-60l-180,-0l-0,191.089l120,-0l-0,70l-120,-0l-0,60l180,-0Z" />
+                <path d="M-0,321.089l180,-0l-0,-160l-120,-0l-0,-160l-60,-0l-0,320Z" />
+                <path d="M210,321.089l-0,-320l180,-0l-0,160l-117.188,-0l0,100l117.188,-0l-0,60l-180,-0Z" />
+                <path d="M600,1.089l-0,320l-180,-0l-0,-160l120,-0l-0,-100l-120,-0l-0,-60l180,-0Z" />
+            </svg>
+
         </div>
     </div>
     <audio></audio>

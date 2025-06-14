@@ -1,5 +1,10 @@
 :root {
+    --color-a: #FF3900;
+    --color-b: #fcb4a1;
+    --color-c: #692513;
     --color-button: #ff0000;
+
+    --speed: 0.1s;
 }
 
 * {
@@ -27,6 +32,11 @@ body {
     padding: 0;
 }
 
+html {
+    /* background-image: url('images/tumo_bckgrd.webp'); */
+    background-color: var(--color-c);
+}
+
 #container {
     display: grid;
     grid-template-areas:
@@ -35,7 +45,7 @@ body {
         'prev playpause next'
         'volume volume volume';
     grid-template-columns: 33% auto 33%;
-    grid-template-rows: auto 24px 86px 64px;
+    grid-template-rows: auto 64px 86px 64px;
     gap: 10px;
     width: 100%;
     height: 100%;
@@ -43,6 +53,7 @@ body {
     max-height: 600px;
     border-radius: 32px;
     overflow: hidden;
+    background-color: var(--color-a);
 }
 
 button {
@@ -50,33 +61,75 @@ button {
     border: none;
     cursor: pointer;
     flex: 1;
-    padding: 10px;
+}
+
+button svg {
+    transition: transform var(--speed) ease;
+}
+
+button:hover svg {
+    transform: scale(1.2);
 }
 
 #visor {
     position: relative;
     grid-area: visor;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
     flex: 1;
     padding: 10px;
+}
+
+#visor h2 {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: var(--color-c);
+    text-transform: uppercase;
+}
+
+#analyser-canvas {
+    width: 100%;
+    height: 100%;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
 }
 
 #dropzone {
     position: absolute;
     inset: 0;
     opacity: 0.3;
-    background-color: black;
+    /* background-color: black; */
 }
 
 #scrub {
     position: relative;
     grid-area: scrub;
-    background-color: yellow;
     max-height: 24px;
     display: flex;
     cursor: pointer;
+    align-self: center;
     border-radius: 12px;
     overflow: hidden;
+    margin: 0 10px;
+    background-color: var(--color-c);
+}
+
+#scrub p {
+    line-height: 12px;
+    position: absolute;
+    inset: 0;
+    color: var(--color-b);
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    mix-blend-mode: difference;
+    pointer-events: none;
 }
 
 
@@ -88,22 +141,19 @@ input[type="range"] {
 
 #progress-bar {
     transform: scaleX(0);
-    background-color: blue;
+    background-color: var(--color-b);
 }
 
 #previous-button {
     grid-area: prev;
-    background-color: pink;
 }
 
 #play-pause-button {
     grid-area: playpause;
-    background-color: greenyellow;
 }
 
 #next-button {
     grid-area: next;
-    background-color: purple;
 }
 
 #volume {
@@ -121,12 +171,16 @@ input[type="range"] {
     flex: 1;
     border-radius: 12px;
     overflow: hidden;
-    background-color: var(--color-button);
+    background-color: var(--color-c);
+}
+
+#mute-button {
+    max-width: fit-content;
 }
 
 #volume-bar {
     transform: scaleX(0.5);
-    background-color: olive;
+    background-color: var(--color-b);
 }
 
 

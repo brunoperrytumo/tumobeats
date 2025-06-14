@@ -1,0 +1,52 @@
+{
+  "short_name": "Tumo Beats",
+  "name": "Tumo Beats",
+  "icons": [
+    {
+      "src": "images/icons-vector.svg",
+      "type": "image/svg+xml",
+      "sizes": "150x150"
+    },
+    {
+      "src": "images/icons-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/icons-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    },
+    {
+      "src": "images/maskable_icon.webp",
+      "type": "image/webp",
+      "sizes": "1024x1024",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot1.png",
+      "sizes": "662x1104",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Mobile Music Player PWA"
+    },
+    {
+      "src": "images/screenshot2.png",
+      "sizes": "1750x1588",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Desktop Music Player PWA"
+    }
+  ],
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "background_color": "#053160",
+  "theme_color": "#053160",
+  "color": "#ffc80b",
+  "display": "standalone",
+  "orientation": "portrait",
+  "description": "PWA Javascript audio player"
+}
