@@ -20,7 +20,7 @@
 
 ## 🖼️ Captura de Ecrã
 
-![screenshot](images/screenshot1.png)
+![screenshot](images/screenshot2.png)
 
 ---
 
