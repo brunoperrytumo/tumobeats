@@ -29,15 +29,15 @@
       "src": "images/screenshot1.png",
       "sizes": "662x1104",
       "type": "image/png",
-      "platform": "narrow",
-      "label": "Mobile Music Player PWA"
+      "form_factor": "narrow",
+      "label": "Mobile Tumo Beats PWA"
     },
     {
       "src": "images/screenshot2.png",
       "sizes": "1750x1588",
       "type": "image/png",
-      "platform": "wide",
-      "label": "Desktop Music Player PWA"
+      "form_factor": "wide",
+      "label": "Desktop Tumo Beats PWA"
     }
   ],
   "id": "/",
@@ -48,5 +48,5 @@
   "color": "#ffc80b",
   "display": "standalone",
   "orientation": "portrait",
-  "description": "PWA Javascript audio player"
+  "description": "Tumo Beats PWA Javascript audio player"
 }

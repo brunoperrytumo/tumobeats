@@ -175,7 +175,10 @@ window.onload = async () => {
   };
   audio.volume = 0.5;
 
-  //Audio analiser
+  //Service worker
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
 };
 window.ondrop = function (e) {
   e.preventDefault();
