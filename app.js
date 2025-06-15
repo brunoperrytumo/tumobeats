@@ -197,9 +197,9 @@ window.onload = async () => {
   audio.volume = 0.5;
 
   //Service worker
-  // if ("serviceWorker" in navigator) {
-  //   navigator.serviceWorker.register("service-worker.js");
-  // }
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
 
   document.querySelector("#container").style.opacity = 1;
   document.querySelector("#container").style.scale = 1;
