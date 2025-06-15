@@ -66,6 +66,25 @@ function updateVisor() {
   analyser.update();
 }
 
+function addFiles(files) {
+  const currentNumFiles = musicList.length;
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (file && file.type !== "audio/mpeg" && file.type !== "audio/flac") continue;
+
+    musicList.push({
+      title: file.name,
+      url: URL.createObjectURL(file),
+    });
+  }
+
+  if (currentNumFiles !== musicList.length) {
+    currentMusic = currentNumFiles;
+    play();
+  }
+}
+
 window.onload = async () => {
   //Load the data
   let request = await fetch("data.json");
@@ -73,28 +92,24 @@ window.onload = async () => {
 
   //music label and tumo logo
   tumoLogo = document.querySelector("#tumo-logo");
-  musicLabel = document.querySelector("#visor h2");
+  musicLabel = document.querySelector("header h2");
+
+  //File input
+  let fileInput = document.querySelector("#file-input");
+  fileInput.onchange = function () {
+    const files = Array.from(fileInput.files);
+    addFiles(files);
+  };
+  // Open file button
+  document.querySelector("#open-file-button").onclick = function () {
+    fileInput.click();
+  };
 
   //Dropzone
   document.querySelector("#dropzone").ondrop = function (e) {
     e.preventDefault();
     const files = Array.from(e.dataTransfer.files);
-    const currentNumFiles = musicList.length;
-
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      if (file && file.type !== "audio/mpeg" && file.type !== "audio/flac") continue;
-
-      musicList.push({
-        title: file.name,
-        url: URL.createObjectURL(file),
-      });
-    }
-
-    if (currentNumFiles !== musicList.length) {
-      currentMusic = currentNumFiles;
-      play();
-    }
+    addFiles(files);
   };
 
   //Scrub input
@@ -148,7 +163,6 @@ window.onload = async () => {
   audio.onplaying = function () {
     if (!analyser) {
       analyser = new AudioAnalyser(audio);
-
       function loop() {
         analyser.update();
         requestAnimationFrame(loop);
@@ -163,7 +177,6 @@ window.onload = async () => {
   audio.onpause = function () {
     playIcon.style.display = "initial";
     pauseIcon.style.display = "none";
-    musicLabel.innerText = "";
     tumoLogo.style.display = "initial";
   };
   audio.ontimeupdate = function () {
@@ -184,9 +197,9 @@ window.onload = async () => {
   audio.volume = 0.5;
 
   //Service worker
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
-  }
+  // if ("serviceWorker" in navigator) {
+  //   navigator.serviceWorker.register("service-worker.js");
+  // }
 
   document.querySelector("#container").style.opacity = 1;
   document.querySelector("#container").style.scale = 1;
@@ -222,21 +235,19 @@ class AudioAnalyser {
     this.#analyser = this.#context.createAnalyser();
     src.connect(this.#analyser);
     this.#analyser.connect(this.#context.destination);
-    this.#analyser.fftSize = 64;
+    this.#analyser.fftSize = 32;
     this.#bufferLength = this.#analyser.frequencyBinCount;
 
     this.#dataArray = new Uint8Array(this.#bufferLength);
 
     const rect = this.#canvas.getBoundingClientRect(); // gets CSS size in pixels
-    const dpi = window.devicePixelRatio || 1;
 
-    // Set real canvas resolution (drawing buffer)
-    this.#WIDTH = rect.width;
-    this.#HEIGHT = rect.height;
+    this.#WIDTH = this.#canvas.width = rect.width;
+    this.#HEIGHT = this.#canvas.height = rect.height;
 
     this.#barWidth = parseInt(this.#WIDTH / this.#bufferLength);
     this.#barHeight;
-    this.#x = 0;
+    this.#x = 30;
   }
 
   update() {
@@ -247,14 +258,12 @@ class AudioAnalyser {
     this.#x = 0;
 
     this.#analyser.getByteFrequencyData(this.#dataArray);
+    this.#ctx.clearRect(0, 0, this.#WIDTH, this.#HEIGHT);
 
-    this.#ctx.fillStyle = "#FF3900";
-    this.#ctx.fillRect(0, 0, this.#WIDTH, this.#HEIGHT);
-
+    this.#ctx.fillStyle = "#ffd1d2";
     for (let i = 0; i < this.#bufferLength; i++) {
-      this.#barHeight = this.#dataArray[i] * 1.2;
+      this.#barHeight = this.#dataArray[i] * 0.7;
 
-      this.#ctx.fillStyle = "#692513";
       this.#ctx.fillRect(
         this.#x,
         this.#HEIGHT - this.#barHeight,
@@ -262,7 +271,7 @@ class AudioAnalyser {
         this.#barHeight
       );
 
-      this.#x += this.#barWidth + 4;
+      this.#x += this.#barWidth + 6;
     }
   }
 }
