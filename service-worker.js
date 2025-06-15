@@ -8,6 +8,8 @@ const CACHE_NAME = "tumobeat";
 const cachedAssets = [
   "/",
   "/index.html",
+  "/app.js",
+  "/styles.css",
   "/manifest.json",
   "/images/app_logo.svg",
   "/images/icons-192.webp",
