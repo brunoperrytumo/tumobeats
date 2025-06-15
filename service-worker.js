@@ -6,18 +6,18 @@ const CACHE_NAME = "tumobeat";
 
 //Assets to be cached
 const cachedAssets = [
-  "/",
-  "/index.html",
-  "/app.js",
-  "/styles.css",
-  "/manifest.json",
-  "/images/app_logo.svg",
-  "/images/icons-192.webp",
-  "/images/icons-512.webp",
-  "/images/icons-vector.svg",
-  "/images/maskable_icon.webp",
-  "/images/screenshot1.webp",
-  "/images/screenshot2.webp",
+  "/tumobeats/",
+  "/tumobeats/index.html",
+  "/tumobeats/app.js",
+  "/tumobeats/styles.css",
+  "/tumobeats/manifest.json",
+  "/tumobeats/images/app_logo.svg",
+  "/tumobeats/images/icons-192.webp",
+  "/tumobeats/images/icons-512.webp",
+  "/tumobeats/images/icons-vector.svg",
+  "/tumobeats/images/maskable_icon.webp",
+  "/tumobeats/images/screenshot1.webp",
+  "/tumobeats/images/screenshot2.webp",
 ];
 
 let isUpdate = false;
