@@ -26,16 +26,16 @@
   ],
   "screenshots": [
     {
-      "src": "images/screenshot1.png",
-      "sizes": "662x1104",
-      "type": "image/png",
+      "src": "images/screenshot1.webp",
+      "sizes": "662x1102",
+      "type": "image/webp",
       "form_factor": "narrow",
       "label": "Mobile Tumo Beats PWA"
     },
     {
-      "src": "images/screenshot2.png",
-      "sizes": "1750x1588",
-      "type": "image/png",
+      "src": "images/screenshot2.webp",
+      "sizes": "1750x1228",
+      "type": "image/webp",
       "form_factor": "wide",
       "label": "Desktop Tumo Beats PWA"
     }
@@ -43,9 +43,9 @@
   "id": "/",
   "start_url": "/",
   "scope": "/",
-  "background_color": "#053160",
-  "theme_color": "#053160",
-  "color": "#ffc80b",
+  "background_color": "#2b0804",
+  "theme_color": "#2b0804",
+  "color": "#b4000c",
   "display": "standalone",
   "orientation": "portrait",
   "description": "Tumo Beats PWA Javascript audio player"

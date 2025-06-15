@@ -16,8 +16,8 @@ const cachedAssets = [
   "/images/icons-512.webp",
   "/images/icons-vector.svg",
   "/images/maskable_icon.webp",
-  "/images/screenshot1.png",
-  "/images/screenshot2.png",
+  "/images/screenshot1.webp",
+  "/images/screenshot2.webp",
 ];
 
 let isUpdate = false;
