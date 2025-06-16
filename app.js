@@ -85,7 +85,7 @@ function addFiles(files) {
   }
 }
 
-window.onload = async () => {
+window.onload = async function() {
   //Load the data
   let request = await fetch("data.json");
   musicList = await request.json();

@@ -27,14 +27,14 @@
   "screenshots": [
     {
       "src": "images/screenshot1.webp",
-      "sizes": "662x1102",
+      "sizes": "331x550",
       "type": "image/webp",
       "form_factor": "narrow",
       "label": "Mobile Tumo Beats PWA"
     },
     {
       "src": "images/screenshot2.webp",
-      "sizes": "1750x1228",
+      "sizes": "1111x916",
       "type": "image/webp",
       "form_factor": "wide",
       "label": "Desktop Tumo Beats PWA"
