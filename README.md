@@ -41,6 +41,6 @@
 │   ├── maskable_icon.webp
 │   ├── screenshot1.png
 │   └── ...
-├── styles.css          # Estilos CSS opcionais
-└── app.js              # Lógica principal do leitor e visualizador
+├── styles.css              # Estilos CSS opcionais
+└── app.js                  # Lógica principal do leitor e visualizador
 ```
