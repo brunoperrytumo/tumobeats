@@ -43,9 +43,9 @@
   "id": "/",
   "start_url": "/tumobeats/",
   "scope": "/tumobeats/",
-  "background_color": "#2b0804",
-  "theme_color": "#2b0804",
-  "color": "#b4000c",
+  "background_color": "#b4000c",
+  "theme_color": "#b4000c",
+  "color": "#2b0804",
   "display": "standalone",
   "orientation": "portrait",
   "description": "Tumo Beats PWA Javascript audio player"
