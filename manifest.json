@@ -41,8 +41,8 @@
     }
   ],
   "id": "/",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/tumobeats/",
+  "scope": "/tumobeats/",
   "background_color": "#2b0804",
   "theme_color": "#2b0804",
   "color": "#b4000c",

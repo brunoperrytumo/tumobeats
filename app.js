@@ -1,3 +1,6 @@
+/*------------------------
+******* VARIABLES ********
+*-------------------------*/
 let audio;
 let analyser;
 
@@ -17,6 +20,10 @@ let timeElapsedElem;
 let unmutedIcon;
 let mutedIcon;
 
+
+/*------------------------
+******* FUNCTIONS ********
+*-------------------------*/
 function scrub() {
   let scrubVal = rangeInput.value / 100;
   updateProgressBar(scrubVal);
