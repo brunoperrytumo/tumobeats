@@ -1,6 +1,6 @@
 # 🎧 Tumo Beats
 
-![alt text](images/maskable_icon.webp)
+![alt text](images/banner.svg)
 
 **Tumo Beats** é uma aplicação web progressiva (PWA) minimalista e instalável, desenvolvida com JavaScript puro. Inclui controlos personalizados de áudio, suporte a ficheiros arrastados, e visualização em tempo real usando a Web Audio API.
 
