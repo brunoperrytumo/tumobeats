@@ -27,7 +27,7 @@
 ## 🗂️ Estrutura do Projeto
 
 ```plaintext
-/
+
 ├── index.html              # Página principal
 ├── manifest.json           # Manifesto da PWA
 ├── service-worker.js       # Service worker para suporte offline
